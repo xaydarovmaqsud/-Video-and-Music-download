@@ -54,7 +54,7 @@ async def process_instagram_link(message: types.Message, state: FSMContext):
     try:
         url = "https://shazam-api6.p.rapidapi.com/shazam/recognize/"
         headers = {
-            "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+            "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
             "X-RapidAPI-Host": "shazam-api6.p.rapidapi.com"
         }
         files = {"upload_file": open('videos/new.mp4', "rb")}
@@ -74,7 +74,7 @@ async def process_instagram_link(message: types.Message, state: FSMContext):
             url = "https://t-one-youtube-converter.p.rapidapi.com/api/v1/createProcess"
             querystring = {"url": youtube_url, "format": "mp3"}
             headers = {
-                "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+                "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
                 "X-RapidAPI-Host": "t-one-youtube-converter.p.rapidapi.com"
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
@@ -96,7 +96,7 @@ async def video_send(message: types.Message):
     try:
         url = "https://shazam-api6.p.rapidapi.com/shazam/recognize/"
         headers = {
-            "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+            "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
             "X-RapidAPI-Host": "shazam-api6.p.rapidapi.com"
         }
         files = {"upload_file": open('videos/vid.mp4', "rb")}
@@ -108,15 +108,17 @@ async def video_send(message: types.Message):
             await message.answer_photo(res['images']['background'], caption=cap, parse_mode=ParseMode.HTML)
 
             cdn_youtube = res['sections'][1]['youtubeurl']
+            print(response.text)
 
             res = requests.get(cdn_youtube)
             json = json.loads(res.text)
             youtube_url = json['actions'][0]['uri'].split('?')[0]
+            print(youtube_url)
 
             url = "https://t-one-youtube-converter.p.rapidapi.com/api/v1/createProcess"
             querystring = {"url": youtube_url, "format": "mp3"}
             headers = {
-                "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+                "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
                 "X-RapidAPI-Host": "t-one-youtube-converter.p.rapidapi.com"
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
@@ -137,7 +139,7 @@ async def voise_send(message: types.Message):
     try:
         url = "https://shazam-api6.p.rapidapi.com/shazam/recognize/"
         headers = {
-            "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+            "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
             "X-RapidAPI-Host": "shazam-api6.p.rapidapi.com"
         }
         files = {"upload_file": open('videos/voise.mp3', "rb")}
@@ -157,7 +159,7 @@ async def voise_send(message: types.Message):
             url = "https://t-one-youtube-converter.p.rapidapi.com/api/v1/createProcess"
             querystring = {"url": youtube_url, "format": "mp3"}
             headers = {
-                "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+                "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
                 "X-RapidAPI-Host": "t-one-youtube-converter.p.rapidapi.com"
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
@@ -178,7 +180,7 @@ async def audio_send(message: types.Message):
     try:
         url = "https://shazam-api6.p.rapidapi.com/shazam/recognize/"
         headers = {
-            "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+            "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
             "X-RapidAPI-Host": "shazam-api6.p.rapidapi.com"
         }
         files = {"upload_file": open('videos/audio.mp3', "rb")}
@@ -198,7 +200,7 @@ async def audio_send(message: types.Message):
             url = "https://t-one-youtube-converter.p.rapidapi.com/api/v1/createProcess"
             querystring = {"url": youtube_url, "format": "mp3"}
             headers = {
-                "X-RapidAPI-Key": "e153a591c6msha6643ab1f726b81p16ed02jsn6695f1292a25",
+                "X-RapidAPI-Key": "0e377137camsh447b37d006e9f6ap1a7bf2jsnd42ba89ecfdc",
                 "X-RapidAPI-Host": "t-one-youtube-converter.p.rapidapi.com"
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
